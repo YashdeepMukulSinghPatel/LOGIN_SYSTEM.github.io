@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="<%= assetPath('css/home.css') %>" />
+<script defer src="<%= assetPath('js/login.js') %>"></script>
+<script defer src="<%= assetPath('js/home.js') %>"></script>
+
+
+<!-- If User is not logged in -->
+<% if (!locals.user) { %>
+<!-- Login Container -->
+<div class="login_container">
+	<div id="login">
+		<!-- Login Form -->
+		<form action="/create-session" method="post">
+			<h2>Admin</h2>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email Address</label>
+				<input
+					type="email"
+					class="form-control"
+					id="exampleInputEmail1"
+					aria-describedby="emailHelp"
+					placeholder="Enter email"
+					name="email"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label>
+				<input
+					type="password"
+					class="form-control"
+					id="exampleInputPassword1"
+					placeholder="Password"
+					name="password"
+					required
+				/>
+			</div>
+			<button type="submit" class="btn login-btn">Login</button>
+			<!-- Social Login & Sign Up -->
+			<div class="social-login">
+				<button class="btn signup-btn">Sign Up</button>
+				<button class="btn google-btn">
+					Login with Google&emsp;
+					<img
+						src="<%= assetPath('images/google-logo.png') %>"
+						alt="Google Logo"
+					/>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+<% } %>
+
+<!-- If User is logged in -->
+<% if (locals.user) { %>
+<div class="homepage">
+	<!-- Banner -->
+	<div class="banner">
+		<h2>Team Career Camp 🥷</h2>
+	</div>
+	
+<% } %>
